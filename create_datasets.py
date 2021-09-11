@@ -68,8 +68,8 @@ def create_datasets_convolutional(bkg_file, output_bkg_name, signals_files, outp
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('--bkg_file', type=str)
-    parser.add_argument('--output_bkg_name', type=str)
+    parser.add_argument('--bkg_file', type=str, required=True)
+    parser.add_argument('--output_bkg_name', type=str, required=True)
     parser.add_argument('--signals_files', type=str, action='append')
     parser.add_argument('--output_signal_names', type=str, action='append')
     parser.add_argument('--events', type=int, default=None)
@@ -77,4 +77,5 @@ if __name__ == '__main__':
     parser.add_argument('--val_size', type=float, default=0.2)
     parser.add_argument('--input_shape', type=int, default=57)
     args = parser.parse_args()
+    print(args)
     create_datasets_dense(**vars(args))
